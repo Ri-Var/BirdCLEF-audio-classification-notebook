@@ -4,32 +4,25 @@ This repository contains a notebook for bird sound classification using deep lea
 
 ---
 
-## 📌 Project Highlights
+##  Project Highlights
 
-- 📁 **Audio Preprocessing**: 
+-  **Audio Preprocessing**: 
   - Noise reduction using `noisereduce`
   - Voice Activity Detection (VAD) using Silero VAD
   - Conversion to Mel spectrograms
 
-- 🧠 **Modeling**:
+-  **Modeling**:
   - Feature extraction using pre-trained [YAMNet](https://tfhub.dev/google/yamnet/1)
   - Feedforward Neural Network with PyTorch
   - Class balancing via `class_weight`
 
-- 🧪 **Evaluation**:
+-  **Evaluation**:
   - Accuracy, classification report, and recall score
   - Train-test split used for validation
 
 ---
 
-## 📂 File Structure
-
-- `Classifier.ipynb`: Main notebook with preprocessing, modeling, and evaluation.
-- `README.md`: Project overview and instructions.
-
----
-
-## ⚙️ Requirements
+##  Requirements
 
 Make sure the following packages are installed:
 
@@ -39,7 +32,7 @@ pip install pandas numpy matplotlib torch torchaudio noisereduce scikit-learn te
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone the repo:
    ```bash
