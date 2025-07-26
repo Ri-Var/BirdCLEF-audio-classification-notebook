@@ -1,6 +1,6 @@
 # BirdCLEF Audio Classification Notebook
 
-This repository contains a notebook for bird sound classification using deep learning techniques and audio preprocessing pipelines. The project is built around the [BirdCLEF](https://www.kaggle.com/competitions/birdclef-2023) dataset and aims to classify 206 different bird species from audio recordings.
+This repository contains a notebook for bird sound classification using deep learning techniques and audio preprocessing pipelines. The project is built around the [BirdCLEF](https://www.kaggle.com/competitions/birdclef-2025) dataset and aims to classify 206 different bird species from audio recordings.
 
 ---
 
