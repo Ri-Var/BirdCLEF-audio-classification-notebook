@@ -7,8 +7,8 @@ This repository contains a notebook for bird sound classification using deep lea
 ##  Project Highlights
 
 -  **Audio Preprocessing**: 
-  - Noise reduction using `noisereduce`
-  - Voice Activity Detection (VAD) using Silero VAD
+  - Noise reduction using *noisereduce*. To improve signal quality, NoiseReduce was applied to remove any background and unwanted noise from segments of the audio file. 
+  - To improve signal quality, *SileroVAD* was applied to identify and remove segments of audio containing human speech, which often overlapped with bird calls in the recordings. This helped isolate bird sounds by eliminating vocal noise from the dataset.
   - Conversion to Mel spectrograms
 
 -  **Modeling**:
@@ -24,8 +24,11 @@ This repository contains a notebook for bird sound classification using deep lea
       - Another major problem that was encountered was the imbalance in the data for each bird species. This imbalance in the data led to the underrepresentation of minority classes. Hence, to rectify this bias, class weights were used. Class weights are passed to the loss function; higher weights are assigned to the underrepresented classes and lower weights are assigned to the overrepresented ones. The loss function penalizes minority classes more than the majority ones. This led to an improvement in the bias and hence in the overall accuracy throughout all classes. 
 
 -  **Evaluation**:
-  - Accuracy, classification report, and recall score
   - Train-test split used for validation
+      - The model was trained on 5000 seconds (1486 files) of data. 
+      - The model was tested on 3400 seconds (1155 files) of data.
+      - Due to computational constraints, a subset of the data was used. This selection represented an optimal balance between maintaining model accuracy and staying within available resource limits.
+  - AUC score was used to measure the model's performance. 
 
 ---
 
@@ -55,11 +58,13 @@ pip install pandas numpy matplotlib torch torchaudio noisereduce scikit-learn te
 
 ## Results
 
-The model is evaluated on a train-test split using metrics like:
-- Accuracy
-- Recall
-- Precision
-- Classification Report
+The model is evaluated on a train-test split using the following metrics:
+- Area Under Curve (AUC): a metric used to evaluate the performance of binary or multi-class classification models, especially in imbalanced datasets. It measures a model's ability to rank positive instances higher than negative ones, across all classification thresholds. 
+  The model after
+  - removing Human Speech segments from the audio files using Silero VAD
+  - using 3 randomly selected 1-sec clips from the audio files (fills in white noise if there aren't any available)
+  - and using embeddings for Google's YAMNET audio classifier
+  achieved an AUC score of **0.817**
 
 ---
 ## References
@@ -67,7 +72,8 @@ The model is evaluated on a train-test split using metrics like:
 - [BirdCLEF Challenge](https://www.kaggle.com/competitions/birdclef-2025)
 - [YAMNet (TensorFlow Hub)](https://tfhub.dev/google/yamnet/1)
 - [Silero VAD](https://github.com/snakers4/silero-vad)
-
+- [Audio Deep Learning Made Simple: Sound Classification, Step-by-Step](https://medium.com/data-science/audio-deep-learning-made-simple-sound-classification-step-by-step-cebc936bbe5)
+- [Transfer Learning](https://medium.com/@davidfagb/guide-to-transfer-learning-in-deep-learning-1f685db1fc94)
 ---
 
 ## Contact
